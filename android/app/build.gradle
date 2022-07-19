@@ -284,6 +284,8 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+
+    implementation project(':react-native-community-geolocation')
 }
 
 if (isNewArchitectureEnabled()) {
