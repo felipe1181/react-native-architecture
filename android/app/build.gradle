@@ -286,6 +286,8 @@ dependencies {
     }
 
     implementation project(':react-native-community-geolocation')
+
+    implementation project(':react-native-config')
 }
 
 if (isNewArchitectureEnabled()) {

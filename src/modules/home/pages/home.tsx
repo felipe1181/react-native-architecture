@@ -1,12 +1,12 @@
-import {useGeoLocation} from 'core/utils/hooks';
 import React from 'react';
 import {Text, View} from 'react-native';
+import {useCurrentWeather} from '../hooks';
 
 const Home: React.FC = () => {
-  useGeoLocation();
+  useCurrentWeather();
   return (
     <View>
-      <Text>OLA mundo</Text>
+      <Text>OLA murxndo</Text>
     </View>
   );
 };
