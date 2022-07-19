@@ -3,6 +3,7 @@ package com.weathertodaybuilders;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
@@ -30,6 +31,11 @@ public class MainActivity extends ReactActivity {
       super(activity, mainComponentName);
     }
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+      super.onCreate(null);
+    }
+    
     @Override
     protected ReactRootView createRootView() {
       ReactRootView reactRootView = new ReactRootView(getContext());
