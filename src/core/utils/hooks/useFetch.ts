@@ -7,7 +7,15 @@ interface UseFetchProps<ENTITY> {
   data: ENTITY | null;
 }
 
-function useFetch<ENTITY>(props: RequestProps) {
+function useFetch<ENTITY>({
+  id,
+  url,
+  params,
+  data,
+  msgError,
+  msgSuccess,
+  noFetch,
+}: RequestProps & {noFetch: boolean}) {
   const [handlerFetch, setHandlerFetch] = useState<UseFetchProps<ENTITY>>({
     isLoading: true,
     data: null,
@@ -15,11 +23,19 @@ function useFetch<ENTITY>(props: RequestProps) {
 
   useEffect(() => {
     async function startApi() {
-      if (!props.url) {
+      if (!noFetch) {
         return;
       }
       setHandlerFetch(oldState => ({...oldState, isLoading: true}));
-      const response = await api.get(props);
+      const response = await api.get({
+        id,
+        url,
+        params,
+        data,
+        msgError,
+        msgSuccess,
+      });
+      console.log('CALL');
       setHandlerFetch(oldState => ({
         ...oldState,
         isLoading: false,
@@ -27,7 +43,7 @@ function useFetch<ENTITY>(props: RequestProps) {
       }));
     }
     startApi();
-  }, [props]);
+  }, [params]);
 
   return handlerFetch;
 }

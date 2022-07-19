@@ -22,6 +22,7 @@ export async function requestHandler(
   {notify}: NotifyProps,
 ) {
   try {
+    console.log('handlerParams(url, params)', handlerParams(url, params));
     const resp = (await handlePromise(
       axios.request({method, url: handlerParams(url, params), data}),
       id,
