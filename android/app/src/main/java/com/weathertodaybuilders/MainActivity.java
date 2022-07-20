@@ -4,7 +4,6 @@ import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
 import android.os.Bundle;
-import com.reactnativecommunity.geolocation.GeolocationPackage;
 
 public class MainActivity extends ReactActivity {
 
@@ -36,15 +35,7 @@ public class MainActivity extends ReactActivity {
     protected void onCreate(Bundle savedInstanceState) {
       super.onCreate(null);
     }
-
-    @Override
-    protected List<ReactPackage> getPackages() {
-        return Arrays.asList(
-                new MainReactPackage(),
-                new GeolocationPackage()
-        );
-    }
-    
+  
     @Override
     protected ReactRootView createRootView() {
       ReactRootView reactRootView = new ReactRootView(getContext());

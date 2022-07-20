@@ -4,7 +4,7 @@
   "compilerOptions": {
     "jsx": "react",
     "skipLibCheck": true,
-
+    "types": ["jest", "styled-components-react-native"],
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["./src/modules/*"], 
