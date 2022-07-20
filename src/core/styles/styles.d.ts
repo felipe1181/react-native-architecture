@@ -1,7 +1,7 @@
 import {fonts, spacing} from './tokens';
 
 declare module 'styled-components' {
-  interface ColorComposition {
+  export interface ColorComposition {
     primary: string;
     secondary: string;
     tertiary: string;

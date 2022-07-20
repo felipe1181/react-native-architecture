@@ -1,4 +1,4 @@
-const fontFamily = '';
+const fontFamily = 'SourceSansPro-Regular';
 const fontWeight = [400, 600];
 const fontSize = [11, 12, 13, 15, 16, 17.2, 22, 28, 34, 20];
 const lineHeight = [13, 16, 18, 20, 21, 22, 24, 28, 34, 41];

@@ -17,6 +17,7 @@ const Routes: React.FC = () => {
             key={`router-${index}`}
             name={name}
             component={Component}
+            options={Component.defaultProps}
           />
         );
       })}

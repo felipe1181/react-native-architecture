@@ -25,6 +25,7 @@ const spacing = {
     md,
     xl,
     xxl,
+    pill: '100%',
   },
 };
 
