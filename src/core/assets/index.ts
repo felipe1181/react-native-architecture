@@ -1,13 +1,22 @@
 const images = {
   home: {
-    background: require('core/assets/images/home/bg.jpg'),
+    background: require('./images/home/bg.jpg'),
   },
   weathers: {
-    moonCloudFastWind: require('core/assets/images/weathers/moon-cloud-fast-wind.png'),
-    moonCloudMidRain: require('core/assets/images/weathers/moon-cloud-mid-rain.png'),
-    sunCloudAngledRain: require('core/assets/images/weathers/sun-cloud-angled-rain.png'),
-    sunCloudMidRain: require('core/assets/images/weathers/sun-cloud-mid-rain.png'),
-    tornado: require('core/assets/images/weathers/tornado.png'),
+    moonCloudFastWind: require('./images/weathers/moon-cloud-fast-wind.png'),
+    moonCloudMidRain: require('./images/weathers/moon-cloud-mid-rain.png'),
+    sunCloudAngledRain: require('./images/weathers/sun-cloud-angled-rain.png'),
+    sunCloudMidRain: require('./images/weathers/sun-cloud-mid-rain.png'),
+    tornado: require('./images/weathers/tornado.png'),
+  },
+  icons: {
+    weathers: {
+      moonCloudFastWind: require('./icons/weathers/moon-cloud-fast-wind.png'),
+      moonCloudMidRain: require('./icons/weathers/moon-cloud-mid-rain.png'),
+      sunCloudAngledRain: require('./icons/weathers/sun-cloud-angled-rain.png'),
+      sunCloudMidRain: require('./icons/weathers/sun-cloud-mid-rain.png'),
+      tornado: require('./icons/weathers/tornado.png'),
+    },
   },
 };
 export default images;

@@ -25,13 +25,13 @@ const spacing = {
     md,
     xl,
     xxl,
-    pill: '100%',
+    pill: 10000,
   },
 };
 
 export interface PropsSpacing {
-  margin: keyof typeof spacing.margin;
-  padding: keyof typeof spacing.padding;
+  margin: keyof typeof spacing.margin | number;
+  padding: keyof typeof spacing.padding | number;
   borderRadius: keyof typeof spacing.borderRadius;
 }
 export default spacing;

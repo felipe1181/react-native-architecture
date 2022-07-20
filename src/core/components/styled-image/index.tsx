@@ -2,7 +2,7 @@ import React from 'react';
 import {Image, ImageProps} from 'react-native';
 import StyledView, {PropsStyledView} from '../styled-view';
 
-interface PropsStyledImage extends PropsStyledView {
+export interface PropsStyledImage extends PropsStyledView {
   source: ImageProps['source'];
   styleImage?: ImageProps['style'];
 }

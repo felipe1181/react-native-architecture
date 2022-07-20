@@ -3,7 +3,7 @@ import {ViewProps} from 'react-native';
 import {ColorComposition} from 'styled-components';
 import styled, {css, DefaultTheme} from 'styled-components/native';
 
-export interface PropsStyledView extends ViewProps {
+export interface PropsStyledView {
   bgColor?: keyof ColorComposition | String;
   p?: PropsSpacing['padding'];
   pt?: PropsSpacing['padding'];
@@ -16,6 +16,7 @@ export interface PropsStyledView extends ViewProps {
   mr?: PropsSpacing['padding'];
   mb?: PropsSpacing['padding'];
   borderRadius?: PropsSpacing['borderRadius'];
+  flexDirection?: 'column' | 'row';
 }
 
 const spacingPadding = ({
@@ -58,7 +59,9 @@ const spacingMargin = ({
   };
 };
 
-const StyledView = styled.View<PropsStyledView>`
+const StyledView = styled.View<PropsStyledView & ViewProps>`
+  flex-direction: ${({flexDirection = 'row'}) => flexDirection};
+
   ${({bgColor, theme}) => {
     if (!bgColor) return;
     const bgColorType = bgColor as keyof Omit<
