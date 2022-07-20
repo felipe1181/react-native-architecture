@@ -16,15 +16,15 @@ const useCurrentWeather = () => {
       const {lat, lon} = currentLocation;
       const hasParams = lat && lon && Config.WEATHER_API_KEY;
       if (hasParams) {
-        const response = await api.get({
-          id: 'get-weather',
-          url: Config.WEATHER_BASE_URL_API,
-          params: {
-            lat,
-            lon,
-            appid: Config.WEATHER_API_KEY,
-          },
-        });
+        // const response = await api.get({
+        //   id: 'get-weather',
+        //   url: Config.WEATHER_BASE_URL_API,
+        //   params: {
+        //     lat,
+        //     lon,
+        //     appid: Config.WEATHER_API_KEY,
+        //   },
+        // });
 
         setCurrentWeather(oldState => ({
           ...oldState,

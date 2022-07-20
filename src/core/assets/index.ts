@@ -2,6 +2,9 @@ const images = {
   home: {
     background: require('./images/home/bg.jpg'),
   },
+  modal: {
+    background: require('./images/modal/bg-modal.png'),
+  },
   weathers: {
     moonCloudFastWind: require('./images/weathers/moon-cloud-fast-wind.png'),
     moonCloudMidRain: require('./images/weathers/moon-cloud-mid-rain.png'),

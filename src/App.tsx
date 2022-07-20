@@ -10,7 +10,6 @@
 
 import React from 'react';
 import ProvidersConfig from './ProvidersConfig';
-
 const App = () => {
   return <ProvidersConfig />;
 };

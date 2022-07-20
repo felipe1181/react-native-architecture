@@ -1,7 +1,12 @@
 import images from 'core/assets';
-import {ImageBackground, StyledView, Typography} from 'core/components';
+import {
+  ImageBackground,
+  ScreenContainer,
+  StyledView,
+  Typography,
+} from 'core/components';
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {StatusBar} from 'react-native';
 import {Footer} from '../components/home.styles';
 import {useCurrentWeather} from '../hooks';
 
@@ -10,15 +15,15 @@ const Home: React.FC = () => {
 
   console.log('data', data);
   return (
-    <SafeAreaView style={{flex: 1}}>
-      <StatusBar translucent backgroundColor="transparent" />
-      <ImageBackground source={images.home.background}>
-        <Typography variant="largeTitle">Olá mundo</Typography>
-        <StyledView p="md">
+    <ScreenContainer variant="invisible" safeBottom={false}>
+      <StyledView flexDirection="column" flex={1}>
+        <StatusBar translucent backgroundColor="transparent" />
+        <ImageBackground source={images.home.background}>
+          <Typography variant="largeTitle">Olá mundo</Typography>
           <Footer />
-        </StyledView>
-      </ImageBackground>
-    </SafeAreaView>
+        </ImageBackground>
+      </StyledView>
+    </ScreenContainer>
   );
 };
 

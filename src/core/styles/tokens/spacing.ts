@@ -30,8 +30,8 @@ const spacing = {
 };
 
 export interface PropsSpacing {
-  margin: keyof typeof spacing.margin | number;
-  padding: keyof typeof spacing.padding | number;
+  margin: keyof typeof spacing.margin | Number;
+  padding: keyof typeof spacing.padding | Number;
   borderRadius: keyof typeof spacing.borderRadius;
 }
 export default spacing;

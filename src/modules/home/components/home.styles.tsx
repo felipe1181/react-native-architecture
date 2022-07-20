@@ -1,8 +1,11 @@
 import images from 'core/assets';
-import {StyledView} from 'core/components';
+import {ImageBackground, StyledView} from 'core/components';
 import React, {useCallback, useState} from 'react';
-import {FlatList, View} from 'react-native';
+import {Dimensions, FlatList} from 'react-native';
+import styled from 'styled-components/native';
+import {useTheme} from 'styled-components';
 import ItemWeatherSmall from './itemWeatherSmall';
+import {createAlpha} from 'core/utils/functions';
 
 export interface WeatherTime {
   id: number;
@@ -11,7 +14,16 @@ export interface WeatherTime {
   time: string;
   mainWeather: number;
 }
-
+const Container = styled(StyledView)`
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top-left-radius: ${({theme}) => theme.spacing.padding.xl}px;
+  border-top-right-radius: ${({theme}) => theme.spacing.padding.xl}px;
+  height: 235px;
+  overflow: hidden;
+  z-index: 999;
+`;
 export const Footer: React.FC = () => {
   const [selectWeather, setSelectWeather] = useState<number | null>(null);
   console.log('selectWeather', selectWeather);
@@ -36,7 +48,13 @@ export const Footer: React.FC = () => {
   );
 
   return (
-    <StyledView>
+    <Container
+      as={ImageBackground}
+      p="md"
+      pb="xl"
+      pt="xl"
+      source={images.modal.background}
+      width={Dimensions.get('window').width}>
       <FlatList
         renderItem={renderItem}
         horizontal
@@ -58,6 +76,6 @@ export const Footer: React.FC = () => {
         ]}
         keyExtractor={item => `weather-${item.id}`}
       />
-    </StyledView>
+    </Container>
   );
 };

@@ -20,13 +20,18 @@ const Wrapper = styled(StyledView)`
   width: 60px;
   height: 146px;
   border-radius: ${({theme}) => theme.spacing.borderRadius.pill}px;
+  shadow-color: '#000';
+  shadow-offset: {width: 0, height: 2};
+  shadow-opacity: 0.22px;
+  shadow-radius: 2.22px; 
+  elevation: 3;
 `;
 
 const Container = styled(StyledView)<Pick<PropsItemWeatherSmall, 'selected'>>`
   justify-content: space-between;
-  border-width: 1px;
+  border-width: 0.5px;
   border-color: ${({theme, selected}) =>
-    createAlpha(theme.colors.primary, !!selected ? 0.5 : 0.2)};
+    createAlpha(theme.colors.primary, selected ? 0.5 : 0.2)};
   align-items: center;
 `;
 
@@ -42,7 +47,7 @@ const ItemWeatherSmall: React.FC<PropsItemWeatherSmall> = ({
     <Wrapper
       as={TouchableOpacity}
       bgColor={
-        selected ? colors.solid.primary : createAlpha(colors.solid.primary, 0.2)
+        selected ? colors.solid.primary : createAlpha(colors.solid.primary, 0.5)
       }
       {...rest}>
       <Container
