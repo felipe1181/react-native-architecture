@@ -7,7 +7,7 @@ import {
 } from 'core/components';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {Footer} from '../components/home.styles';
+import {Footer, WeatherContent, Wrapper} from '../components/home.styles';
 import {useCurrentWeather} from '../hooks';
 
 const Home: React.FC = () => {
@@ -19,7 +19,20 @@ const Home: React.FC = () => {
       <StyledView flexDirection="column" flex={1}>
         <StatusBar translucent backgroundColor="transparent" />
         <ImageBackground source={images.home.background}>
-          <Typography variant="largeTitle">Olá mundo</Typography>
+          <Wrapper>
+            <WeatherContent
+              item={{
+                time: '',
+                city: 'Juazeiro do Norte',
+                icon: '01d',
+                id: 234,
+                main: 'Chuvas forte fi',
+                mainWeather: 38,
+                maxMainWeather: 39,
+                minMainWeather: 19,
+              }}
+            />
+          </Wrapper>
           <Footer />
         </ImageBackground>
       </StyledView>

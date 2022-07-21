@@ -1,6 +1,7 @@
 const images = {
   home: {
     background: require('./images/home/bg.jpg'),
+    house: require('./images/home/house.png'),
   },
   modal: {
     background: require('./images/modal/bg-modal.png'),
@@ -20,6 +21,21 @@ const images = {
       sunCloudMidRain: require('./icons/weathers/sun-cloud-mid-rain.png'),
       tornado: require('./icons/weathers/tornado.png'),
     },
+  },
+  animations: {
+    cloudClean: require('./animations/cloud/cloud-clean.json'),
+    cloudRain: require('./animations/cloud/cloud-rain.json'),
+    cloudSnow: require('./animations/cloud/cloud-snow.json'),
+    cloudThunder: require('./animations/cloud/cloud-thunder.json'),
+    cloudMist: require('./animations/cloud/cloud-mist.json'),
+    cloudShowerRain: require('./animations/cloud/cloud-shower-rain.json'),
+    moonCloudClean: require('./animations/moon/moon-cloud-clean.json'),
+    moonCloudRain: require('./animations/moon/moon-cloud-rain.json'),
+    moonLight: require('./animations/moon/moon-light.json'),
+    sunCloudClean: require('./animations/sun/sun-cloud-clean.json'),
+    sunCloudRain: require('./animations/sun/sun-cloud-rain.json'),
+    sunLight: require('./animations/sun/sun-light.json'),
+    notFound: require('./animations/system/not-found.json'),
   },
 };
 export default images;

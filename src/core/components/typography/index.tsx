@@ -4,11 +4,14 @@ import {DefaultTheme, useTheme} from 'styled-components';
 interface PropsTypography extends TextProps {
   variant: keyof DefaultTheme['fonts'];
   color?: keyof DefaultTheme['colors']['solid'] | String;
+  fontSize?: number;
 }
 const Typography: React.FC<PropsTypography> = ({
   variant,
   children,
   color,
+  fontSize,
+  style,
   ...rest
 }) => {
   const {fonts, colors} = useTheme();
@@ -28,12 +31,14 @@ const Typography: React.FC<PropsTypography> = ({
         <Text
           style={[
             propsTargetFont,
+            style,
             {
               color: (color
                 ? colorFont
                   ? colorFont
                   : color
                 : colors.primary) as ColorValue,
+              ...(fontSize ? {fontSize} : {}),
             },
           ]}
           {...rest}>
