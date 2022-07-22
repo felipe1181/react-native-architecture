@@ -1,39 +1,67 @@
 import images from 'core/assets';
+import {ImageBackground, ScreenContainer, StyledView} from 'core/components';
+import React, {useCallback, useEffect, useMemo} from 'react';
+import {FlatList, StatusBar} from 'react-native';
 import {
-  ImageBackground,
-  ScreenContainer,
-  StyledView,
-  Typography,
-} from 'core/components';
-import React from 'react';
-import {StatusBar} from 'react-native';
-import {Footer, WeatherContent, Wrapper} from '../components/home.styles';
-import {useCurrentWeather} from '../hooks';
+  WrapperFooter,
+  ItemFooter,
+  WeatherContent,
+  Wrapper,
+} from '../components/home.styles';
+import {useOpenWeather} from '../hooks';
+import {useWeather} from 'modules/home/reducers/weather/hooks';
+import {WeatherTime} from '../reducers/weather/reducer/types';
 
 const Home: React.FC = () => {
-  const {data} = useCurrentWeather();
+  const {data} = useOpenWeather();
+  const {
+    setWeathers,
+    data: weatherData,
+    setCurrentWeather,
+    weatherChosedIndex,
+  } = useWeather();
 
-  console.log('data', data);
+  const weatherChosed = weatherData?.data[weatherChosedIndex];
+
+  const renderItem = ({item, index}: {item: WeatherTime; index: number}) => {
+    return (
+      <ItemFooter
+        time={item.time}
+        icon={{source: images.icons.weathers.moonCloudMidRain}}
+        weather={item.mainWeather}
+        selected={weatherChosedIndex === index}
+        onPress={() => setCurrentWeather(index)}
+        index={index}
+      />
+    );
+  };
+  const keyExtractor = (item: WeatherTime) => item.id;
+
+  useEffect(() => {
+    if (data) {
+      return setWeathers(data);
+    }
+  }, [data, setWeathers]);
+
   return (
     <ScreenContainer variant="invisible" safeBottom={false}>
       <StyledView flexDirection="column" flex={1}>
         <StatusBar translucent backgroundColor="transparent" />
         <ImageBackground source={images.home.background}>
           <Wrapper>
-            <WeatherContent
-              item={{
-                time: '',
-                city: 'Juazeiro do Norte',
-                icon: '01d',
-                id: 234,
-                main: 'Chuvas forte fi',
-                mainWeather: 38,
-                maxMainWeather: 39,
-                minMainWeather: 19,
-              }}
-            />
+            {weatherChosed && (
+              <WeatherContent item={weatherChosed} city={weatherData.city} />
+            )}
           </Wrapper>
-          <Footer />
+          <WrapperFooter>
+            <FlatList<WeatherTime>
+              renderItem={renderItem}
+              horizontal
+              data={weatherData.data}
+              keyExtractor={keyExtractor}
+              showsHorizontalScrollIndicator={false}
+            />
+          </WrapperFooter>
         </ImageBackground>
       </StyledView>
     </ScreenContainer>

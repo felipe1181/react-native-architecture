@@ -5,28 +5,15 @@ import {
   StyledView,
   Typography,
 } from 'core/components';
-import StyledImage, {PropsStyledImage} from 'core/components/styled-image';
-import {PropsStyledView} from 'core/components/styled-view';
 import {createAlpha} from 'core/utils/functions';
-import React, {useCallback, useState} from 'react';
-import {Dimensions, FlatList, StatusBar} from 'react-native';
+import React from 'react';
+import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
 import {useTheme} from 'styled-components';
-import ItemWeatherSmall from './itemWeatherSmall';
+import ItemWeatherSmall, {PropsItemWeatherSmall} from './itemWeatherSmall';
 import {getAnimationByOpenWeatherIconId} from '../utils';
-
-export interface WeatherTime {
-  id: number;
-  main: string;
-  icon: string;
-  time: string;
-  mainWeather: number;
-  minMainWeather: number;
-  maxMainWeather: number;
-}
-export interface WeatherMain extends WeatherTime {
-  city: string;
-}
+import {WeatherMain, WeatherTime} from '../reducers/weather/reducer/types';
+import {PropsStyledView} from 'core/components/styled-view';
 
 export const Wrapper = styled(StyledView)`
   flex: 1;
@@ -46,32 +33,44 @@ const ContainerHeaderContent = styled(StyledView)`
   justify-content: center;
 `;
 
-export const WeatherContent: React.FC<{item: WeatherMain}> = ({item}) => {
+export const WeatherContent: React.FC<{
+  item: WeatherTime;
+  city: WeatherMain['city'];
+}> = ({item, city}) => {
   const {colors} = useTheme();
   return (
     <StyledView flexDirection="column">
       <ContainerHeaderContent flexDirection="column">
-        <Typography variant="title1">{item.city}</Typography>
-        <StyledView as={TitleMainWather} mt="sm" variant="largeTitle">
-          {item.mainWeather}º
+        <Typography variant="title1">{city.name}</Typography>
+        <StyledView
+          testID="title-main-weather"
+          as={TitleMainWather}
+          mt="sm"
+          variant="largeTitle">
+          {item.mainWeather.toFixed(0)}º
         </StyledView>
-        <Typography variant="title3" color={colors.secondary}>
-          {item.main}
+        <Typography
+          testID="description-main-weather"
+          variant="title3"
+          color={colors.secondary}>
+          {item.description}
         </Typography>
         <StyledView>
           <StyledView
+            testID="min-main-weather"
             as={Typography}
             m="xs"
             variant="title3"
             color={colors.secondary}>
-            Min {item.minMainWeather}º
+            Min {item.minMainWeather.toFixed(0)}º
           </StyledView>
           <StyledView
+            testID="max-main-weather"
             as={Typography}
             m="xs"
             variant="title3"
             color={colors.secondary}>
-            Max {item.maxMainWeather}º
+            Max {item.maxMainWeather.toFixed(0)}º
           </StyledView>
         </StyledView>
       </ContainerHeaderContent>
@@ -79,7 +78,6 @@ export const WeatherContent: React.FC<{item: WeatherMain}> = ({item}) => {
         <LottieContainer
           resizeMode="cover"
           autoSize={false}
-          style={{width: 250, height: 250}}
           source={getAnimationByOpenWeatherIconId(item.icon)}
         />
       </StyledView>
@@ -97,6 +95,7 @@ const ContainerFooter = styled(StyledView)`
   overflow: hidden;
   z-index: 999;
 `;
+
 const HeaderFooter = styled(StyledView)<PropsStyledView>`
   border-bottom-color: ${({theme}) =>
     createAlpha(theme.colors.solid.secondary, 0.09)};
@@ -105,28 +104,21 @@ const HeaderFooter = styled(StyledView)<PropsStyledView>`
     createAlpha(theme.colors.solid.secondary, 0.2)};
   align-items: center;
 `;
-export const Footer: React.FC = ({data}: {data: Array<WeatherMain>}) => {
-  const [selectWeather, setSelectWeather] = useState<number>(null);
-  const renderItem = useCallback(
-    ({item, index}: {item: WeatherTime; index: number}) => {
-      return (
-        <ItemWeatherSmall
-          time={item.time}
-          icon={{source: images.icons.weathers.moonCloudMidRain}}
-          weather={item.mainWeather}
-          selected={selectWeather === item.id}
-          onPress={() =>
-            selectWeather === item.id
-              ? setSelectWeather(null)
-              : setSelectWeather(item.id)
-          }
-          ml={index > 0 ? 'sm' : 0}
-        />
-      );
-    },
-    [selectWeather],
-  );
 
+export const ItemFooter: React.FC<
+  PropsItemWeatherSmall & {index: number; onPress: () => void}
+> = ({index, onPress, ...rest}) => {
+  return (
+    <ItemWeatherSmall
+      onPress={() => onPress()}
+      ml={index > 0 ? 'sm' : 0}
+      {...rest}
+    />
+  );
+};
+export const WrapperFooter: React.FC<{
+  children: Array<React.ReactElement> | React.ReactElement;
+}> = ({children}) => {
   return (
     <ContainerFooter
       as={ImageBackground}
@@ -140,14 +132,7 @@ export const Footer: React.FC = ({data}: {data: Array<WeatherMain>}) => {
           Previsão do tempo nas próximas horas
         </Typography>
       </HeaderFooter>
-      <StyledView p="md">
-        <FlatList
-          renderItem={renderItem}
-          horizontal
-          data={data}
-          keyExtractor={item => `weather-${item.id}`}
-        />
-      </StyledView>
+      <StyledView p="md">{children}</StyledView>
     </ContainerFooter>
   );
 };

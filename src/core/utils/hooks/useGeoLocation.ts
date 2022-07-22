@@ -14,7 +14,7 @@ const useGeoLocation = () => {
   }, []);
 
   return {
-    currentLocation,
+    ...currentLocation,
   };
 };
 

@@ -22,8 +22,8 @@ const Wrapper = styled(StyledView)`
   border-radius: ${({theme}) => theme.spacing.borderRadius.pill}px;
   shadow-color: '#000';
   shadow-offset: {width: 0, height: 2};
-  shadow-opacity: 0.22px;
-  shadow-radius: 2.22px; 
+  shadow-opacity: 0.22;
+  shadow-radius: 2.22; 
   elevation: 3;
 `;
 
@@ -45,12 +45,14 @@ const ItemWeatherSmall: React.FC<PropsItemWeatherSmall> = ({
   const {colors} = useTheme();
   return (
     <Wrapper
+      testID="btn-item-weather-small"
       as={TouchableOpacity}
       bgColor={
         selected ? colors.solid.primary : createAlpha(colors.solid.primary, 0.5)
       }
       {...rest}>
       <Container
+        testId="container-item-weather"
         flexDirection="column"
         borderRadius="pill"
         p="sm"
@@ -59,7 +61,7 @@ const ItemWeatherSmall: React.FC<PropsItemWeatherSmall> = ({
         flex={1}>
         <Typography variant="subHeadline">{formatDateByHour(time)}H</Typography>
         <StyledImage {...icon} />
-        <Typography variant="title3">{weather}º</Typography>
+        <Typography variant="title3">{weather.toFixed(0)}º</Typography>
       </Container>
     </Wrapper>
   );

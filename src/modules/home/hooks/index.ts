@@ -1,1 +1,1 @@
-export {default as useCurrentWeather} from './useCurrentWeather';
+export {default as useOpenWeather} from './useOpenWeather';
