@@ -21,6 +21,9 @@ const images = {
       sunCloudMidRain: require('./icons/weathers/sun-cloud-mid-rain.png'),
       tornado: require('./icons/weathers/tornado.png'),
     },
+    system: {
+      reload: require('./icons/system/reload.png'),
+    },
   },
   animations: {
     cloudClean: require('./animations/cloud/cloud-clean.json'),

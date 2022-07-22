@@ -1,19 +1,27 @@
 import images from 'core/assets';
-import {ImageBackground, ScreenContainer, StyledView} from 'core/components';
-import React, {useCallback, useEffect, useMemo} from 'react';
+import {
+  IconButton,
+  ImageBackground,
+  ScreenContainer,
+  StyledView,
+  Loading,
+} from 'core/components';
+import React, {useEffect} from 'react';
 import {FlatList, StatusBar} from 'react-native';
 import {
   WrapperFooter,
   ItemFooter,
   WeatherContent,
   Wrapper,
+  WrapperRefresh,
 } from '../components/home.styles';
 import {useOpenWeather} from '../hooks';
 import {useWeather} from 'modules/home/reducers/weather/hooks';
 import {WeatherTime} from '../reducers/weather/reducer/types';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Home: React.FC = () => {
-  const {data} = useOpenWeather();
+  const {data, refreshWeather, isLoading} = useOpenWeather();
   const {
     setWeathers,
     data: weatherData,
@@ -48,7 +56,16 @@ const Home: React.FC = () => {
       <StyledView flexDirection="column" flex={1}>
         <StatusBar translucent backgroundColor="transparent" />
         <ImageBackground source={images.home.background}>
+          {isLoading && <Loading />}
           <Wrapper>
+            <WrapperRefresh m="md">
+              <SafeAreaView>
+                <IconButton
+                  onPress={() => refreshWeather()}
+                  icon={{source: images.icons.system.reload}}
+                />
+              </SafeAreaView>
+            </WrapperRefresh>
             {weatherChosed && (
               <WeatherContent item={weatherChosed} city={weatherData.city} />
             )}

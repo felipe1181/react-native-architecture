@@ -20,6 +20,11 @@ export const Wrapper = styled(StyledView)`
   align-items: center;
   justify-content: center;
 `;
+export const WrapperRefresh = styled(StyledView)`
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 
 const TitleMainWather = styled(Typography)`
   font-size: 98px;
@@ -27,7 +32,6 @@ const TitleMainWather = styled(Typography)`
 
   font-family: SourceSansPro-ExtraLight;
 `;
-
 const ContainerHeaderContent = styled(StyledView)`
   align-items: center;
   justify-content: center;

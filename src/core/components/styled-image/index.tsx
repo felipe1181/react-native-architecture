@@ -4,17 +4,19 @@ import StyledView, {PropsStyledView} from '../styled-view';
 
 export interface PropsStyledImage extends PropsStyledView {
   source: ImageProps['source'];
-  styleImage?: ImageProps['style'];
+  style?: ImageProps['style'];
+  styleContainer?: PropsStyledView['style'];
 }
 
 const StyledImage: React.FC<PropsStyledImage> = ({
   source,
-  styleImage,
+  styleContainer,
+  style,
   ...rest
 }) => {
   return (
-    <StyledView {...rest}>
-      <Image source={source} style={styleImage} />
+    <StyledView {...rest} style={styleContainer}>
+      <Image source={source} style={style} />
     </StyledView>
   );
 };

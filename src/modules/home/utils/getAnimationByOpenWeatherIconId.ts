@@ -22,7 +22,6 @@ const openWeatherIconId = {
 };
 
 export default function getAnimationByOpenWeatherIconId(id: string) {
-  console.log('id', id);
   const currentWeather =
     openWeatherIconId[id as keyof typeof openWeatherIconId];
 

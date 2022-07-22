@@ -3,7 +3,7 @@ import {ViewProps} from 'react-native';
 import {ColorComposition} from 'styled-components';
 import styled, {css, DefaultTheme} from 'styled-components/native';
 
-export interface PropsStyledView {
+export interface PropsStyledView extends ViewProps {
   bgColor?: keyof ColorComposition | String;
   p?: PropsSpacing['padding'];
   pt?: PropsSpacing['padding'];

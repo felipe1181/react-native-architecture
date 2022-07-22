@@ -21,9 +21,8 @@ const Wrapper = styled(StyledView)`
   height: 146px;
   border-radius: ${({theme}) => theme.spacing.borderRadius.pill}px;
   shadow-color: '#000';
-  shadow-offset: {width: 0, height: 2};
   shadow-opacity: 0.22;
-  shadow-radius: 2.22; 
+  shadow-radius: 2.22px;
   elevation: 3;
 `;
 
