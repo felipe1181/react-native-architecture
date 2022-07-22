@@ -67,7 +67,7 @@ export interface ActionsProvider<STATE> {
       STATE,
       {
         type: TypeActionsStateProvider.SET_CURRENT_WEATHER;
-        payload: WeatherMain | null;
+        payload: number;
       }
     >,
   ) => StateProvider;

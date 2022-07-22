@@ -1,4 +1,5 @@
 import {
+  StateProvider,
   WeatherMainApi,
   WeatherTime,
 } from 'modules/home/reducers/weather/reducer/types';
@@ -315,3 +316,8 @@ export const weatherMain = normalizeApiWeatherToWeatherEntity(
 );
 
 export const weatherTime: WeatherTime = weatherMain.data[0];
+
+export const weatherState: StateProvider = {
+  data: weatherMain,
+  weatherChosedIndex: 0,
+};

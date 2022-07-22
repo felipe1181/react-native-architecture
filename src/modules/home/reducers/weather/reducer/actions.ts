@@ -15,10 +15,16 @@ const actions: ActionsProvider<StateProvider> = {
     };
   },
   [TypeActionsStateProvider.SET_CURRENT_WEATHER]: ({state, action}) => {
-    return {
-      ...state,
-      weatherChosedIndex: Number(action?.payload),
-    };
+    const targetIndex = Number(action?.payload);
+
+    if (targetIndex >= 0 && targetIndex <= state.data.data.length - 1) {
+      return {
+        ...state,
+        weatherChosedIndex: Number(action?.payload),
+      };
+    }
+
+    return state;
   },
 };
 
