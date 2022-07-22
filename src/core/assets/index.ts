@@ -14,12 +14,19 @@ const images = {
     tornado: require('./images/weathers/tornado.png'),
   },
   icons: {
-    weathers: {
-      moonCloudFastWind: require('./icons/weathers/moon-cloud-fast-wind.png'),
-      moonCloudMidRain: require('./icons/weathers/moon-cloud-mid-rain.png'),
-      sunCloudAngledRain: require('./icons/weathers/sun-cloud-angled-rain.png'),
-      sunCloudMidRain: require('./icons/weathers/sun-cloud-mid-rain.png'),
-      tornado: require('./icons/weathers/tornado.png'),
+    openWeathers: {
+      '01d': require('./icons/weathers/sun/01d.png'),
+      '02d': require('./icons/weathers/sun/02d.png'),
+      '03d': require('./icons/weathers/sun/03d.png'),
+      '04d': require('./icons/weathers/sun/04d.png'),
+      '10d': require('./icons/weathers/sun/10d.png'),
+      '11d': require('./icons/weathers/sun/11d.png'),
+      '01n': require('./icons/weathers/moon/01n.png'),
+      '02n': require('./icons/weathers/moon/02n.png'),
+      '03n': require('./icons/weathers/moon/03n.png'),
+      '04n': require('./icons/weathers/moon/04n.png'),
+      '10n': require('./icons/weathers/moon/10n.png'),
+      '11n': require('./icons/weathers/moon/11n.png'),
     },
     system: {
       reload: require('./icons/system/reload.png'),

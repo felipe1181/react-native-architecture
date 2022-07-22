@@ -34,6 +34,7 @@ export async function requestHandler(
     }
     return resp.data;
   } catch (err) {
+    console.log('err', err);
     handlerError({
       response: (err as ResponseErrorProps).response,
       notify,

@@ -16,7 +16,7 @@ const FooterComponent = (
   <ItemFooter
     index={1}
     onPress={handleOnPress}
-    icon={{source: images.icons.weathers.moonCloudMidRain}}
+    icon={{source: images.icons.openWeathers['01d']}}
     time="2022-07-21 03:00:00"
     weather={30}
   />

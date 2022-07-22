@@ -35,7 +35,12 @@ const Home: React.FC = () => {
     return (
       <ItemFooter
         time={item.time}
-        icon={{source: images.icons.weathers.moonCloudMidRain}}
+        icon={{
+          source:
+            images.icons.openWeathers[
+              item.icon as keyof typeof images.icons.openWeathers
+            ],
+        }}
         weather={item.mainWeather}
         selected={weatherChosedIndex === index}
         onPress={() => setCurrentWeather(index)}

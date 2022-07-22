@@ -33,9 +33,12 @@ const useCurrentWeather = () => {
             lat,
             lon,
             appid: OPEN_WATHER_API_KEY,
+            cnt: 8,
+            units: 'metric',
+            lang: 'pt_br',
           },
         });
-
+        console.log('response', response);
         setCurrentWeather(oldState => ({
           ...oldState,
           isLoading: false,

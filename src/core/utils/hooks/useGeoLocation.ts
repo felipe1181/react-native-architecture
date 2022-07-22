@@ -20,7 +20,7 @@ const useGeoLocation = () => {
       );
     }
   }, [currentLocation]);
-
+  console.log('currentLocation', currentLocation);
   return {
     ...currentLocation,
     reloadLocation,
