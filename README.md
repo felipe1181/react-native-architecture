@@ -109,7 +109,7 @@ Usado junto com o jest para realizar teste e garantir as entregas no sistema.
 
 ### Base da arquitetura
 
-A base da arquitetura desse sistema foi tirada de duas arquiteturas, Atomic Design e MVVM, que visam facilitar os testes e reaproveitamento de código. Tendo isso em vista, essa arquitetura tem como objetivo separar a aplicacao em módulos, que por sua vez obedecem o Atomic Design tendo a hieraquia de paginas, e componentes do tipo ecossistema, organimsmo, molécula e atômico.
+A base da arquitetura desse sistema foi tirada de duas arquiteturas, Atomic Design e MVVM, que visam facilitar os testes e reaproveitamento de código. Tendo isso em vista, essa arquitetura tem como objetivo separar a aplicacao em módulos, que por sua vez obedecem o Atomic Design tendo a hieraquia de paginas, e componentes do tipo páginas, ecossistema, organimsmo, molécula e atômico.
 
 ### Estrutura do projeto
 
@@ -212,4 +212,4 @@ Esse padrão será ultilizado em casos onde a lógica precisa ser compartilhada 
 ## Screenshots
 
 ![Screenshot home](https://i.imgur.com/ogqSjCn.png)
-![GIf home](https://i.imgur.com/jLUjgH5.gif)
+![GIf home](https://i.imgur.com/pMzwOGb.gif)
