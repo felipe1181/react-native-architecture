@@ -212,4 +212,6 @@ Esse padrão será ultilizado em casos onde a lógica precisa ser compartilhada 
 ## Screenshots
 
 ![Screenshot home](https://i.imgur.com/ogqSjCn.png)
-![GIf home](https://i.imgur.com/YDlgMKH.gif)
+
+ ![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/31036996/180613233-28e8daca-a8fc-4f94-950e-6f3ed515e1b1.gif)
+
