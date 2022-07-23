@@ -212,4 +212,4 @@ Esse padrão será ultilizado em casos onde a lógica precisa ser compartilhada 
 ## Screenshots
 
 ![Screenshot home](https://i.imgur.com/ogqSjCn.png)
-![GIf home](https://i.imgur.com/pMzwOGb.gif)
+![GIf home](https://i.imgur.com/YDlgMKH.gif)
